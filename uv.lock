@@ -608,16 +608,16 @@ dependencies = [
 ]
 
 [package.optional-dependencies]
-pah-app = [
+gui = [
     { name = "pah-gui" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "pah-core", editable = "packages/pah_core" },
-    { name = "pah-gui", marker = "extra == 'pah-app'", editable = "packages/pah_gui" },
+    { name = "pah-gui", marker = "extra == 'gui'", editable = "packages/pah_gui" },
 ]
-provides-extras = ["pah-app"]
+provides-extras = ["gui"]
 
 [[package]]
 name = "pah-core"
