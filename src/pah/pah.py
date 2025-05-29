@@ -45,8 +45,8 @@ class PAH:
 
         if self.output_page_texts_path:
             self.logger.info(f"Saving page texts to {self.output_page_texts_path}...")
-            with open(self.output_page_texts_path, "w") as f:
-                json.dump(page_texts, f, indent=2)
+            with open(self.output_page_texts_path, "w", encoding="utf-8") as f:
+                json.dump(page_texts, f, indent=2, ensure_ascii=False)
 
         self.logger.info("Getting highlights from the LLM...")
         highlights = llm.get_highlights(
@@ -57,8 +57,13 @@ class PAH:
 
         if self.output_highlights_path:
             self.logger.info(f"Saving highlights to {self.output_highlights_path}...")
-            with open(self.output_highlights_path, "w") as f:
-                json.dump([h.model_dump() for h in highlights], f, indent=2)
+            with open(self.output_highlights_path, "w", encoding="utf-8") as f:
+                json.dump(
+                    [h.model_dump() for h in highlights],
+                    f,
+                    indent=2,
+                    ensure_ascii=False,
+                )
         self.logger.info(
             f"Found {len(highlights)} highlights. Applying them to the PDF..."
         )

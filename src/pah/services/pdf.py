@@ -1,7 +1,13 @@
 from pathlib import Path
 
-import pymupdf  # type: ignore
-from pymupdf import Document, Page, Annot
+from pymupdf import (  # type: ignore
+    Annot,
+    Document,
+    Page,
+    TEXT_PRESERVE_WHITESPACE,
+    TEXT_PRESERVE_LIGATURES,
+    TEXT_MEDIABOX_CLIP,
+)
 from pymupdf import utils as pymupdfutils
 
 
@@ -27,7 +33,15 @@ def highlight_text(
     for page in doc:
         if page_num is not None and page.number != page_num:
             continue
-        quads = pymupdfutils.search_for(page, search_text, quads=True)
+        quads = pymupdfutils.search_for(
+            page,
+            search_text,
+            quads=True,
+            # Disable text dehyphenation
+            flags=TEXT_PRESERVE_WHITESPACE
+            | TEXT_PRESERVE_LIGATURES
+            | TEXT_MEDIABOX_CLIP,
+        )
         if len(quads) == 0:
             continue
 

@@ -1,3 +1,4 @@
+import json
 from pydantic import BaseModel, Field
 
 from pah.models import Highlight
@@ -14,8 +15,11 @@ SYSTEM_PROMPT = """
 You are an AI assistant that highlights text in a PDF document based on a given prompt.
 You will be given the text of each page of a PDF document and a prompt. Your task is to identify the relevant sections of the text that answer the prompt and return them as highlights.
 You MUST return a list of highlights, each with the following fields:
-    - `page`: The page number where the highlight is located. You MUST start counting from 0.
-    - `text`: The text that should be highlighted. You MUST preserve the original formatting of the text.
+    - `page`: The page number where the highlight is located.
+        - You MUST start counting from 0.
+    - `text`: The text that should be highlighted.
+        - You MUST preserve the original formatting of the text (e.g. typos, newlines, spaces, unicodes, etc.).
+        - You NEVER dehyphenate any hyphenated words.
     - `reason`: A brief explanation of why this text is relevant to the prompt.
     - `color`: The color of the highlight. If you are unsure, use "yellow".
 """
@@ -29,6 +33,12 @@ def get_highlights(
     from litellm.main import completion
     from litellm.types.utils import Choices, ModelResponse
 
+    input_prompt = f"""Here is the text of each page of the PDF document:
+```json
+{json.dumps(page_texts, indent=2, ensure_ascii=False)}
+```
+"""
+
     response = completion(
         model=model,
         messages=[
@@ -36,8 +46,11 @@ def get_highlights(
                 "role": "system",
                 "content": "You are an AI assistant that highlights text in a PDF document based on a given prompt.",
             },
-            {"role": "user", "content": "\n".join(page_texts)},
             {"role": "user", "content": prompt},
+            {
+                "role": "user",
+                "content": input_prompt,
+            },
         ],
         stream=False,
         response_format=HighlightResponse,
