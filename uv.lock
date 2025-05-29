@@ -621,7 +621,6 @@ provides-extras = ["gui"]
 
 [[package]]
 name = "pah-core"
-version = "0.1.0"
 source = { editable = "packages/pah_core" }
 dependencies = [
     { name = "litellm" },
@@ -638,7 +637,6 @@ requires-dist = [
 
 [[package]]
 name = "pah-gui"
-version = "0.1.0"
 source = { editable = "packages/pah_gui" }
 dependencies = [
     { name = "pah-core" },

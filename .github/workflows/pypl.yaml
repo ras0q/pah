@@ -21,7 +21,7 @@ jobs:
           enable-cache: true
       - name: Build and Publish to PyPI
         run: |
-          uv build
+          uv build --all-packages
           uv publish
         env:
           UV_PUBLISH_TOKEN: ${{ secrets.PYPI_TOKEN }}
