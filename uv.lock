@@ -500,7 +500,6 @@ wheels = [
 
 [[package]]
 name = "pah"
-version = "1.0.0"
 source = { editable = "." }
 dependencies = [
     { name = "litellm" },
