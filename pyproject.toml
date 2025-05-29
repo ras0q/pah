@@ -19,6 +19,9 @@ homepage = "https://github.com/ras0q/pah"
 issues = "https://github.com/ras0q/pah/issues"
 repository = "https://github.com/ras0q/pah"
 
+[project.scripts]
+pah = "pah:cli"
+
 [build-system]
 build-backend = "hatchling.build"
 requires = ["hatchling"]
