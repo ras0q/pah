@@ -50,3 +50,13 @@ pah = PAH(
 )
 pah.highlight()
 ```
+
+### As a GUI tool
+
+```bash
+pip install pah[gui]
+```
+
+```bash
+pah-app
+```

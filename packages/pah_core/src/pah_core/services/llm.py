@@ -29,6 +29,7 @@ def get_highlights(
     model: str,
     prompt: str,
     page_texts: list[str],
+    api_key: str | None = None,
 ) -> list[Highlight]:
     from litellm.main import completion
     from litellm.types.utils import Choices, ModelResponse
@@ -54,6 +55,7 @@ def get_highlights(
         ],
         stream=False,
         response_format=HighlightResponse,
+        api_key=api_key,
     )
     assert isinstance(response, ModelResponse), "Response is not a HighlightResponse"
     choice = response.choices[0]

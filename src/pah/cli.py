@@ -1,11 +1,13 @@
-def cli():
-    import argparse
-    from pathlib import Path
+import argparse
+from pathlib import Path
 
+
+def cli():
     from pah_core import PAH
 
     parser = argparse.ArgumentParser(description="pah: PDF AutoAuto Highlighter")
-    parser.add_argument("input_pdf_path", type=Path, help="Input PDF file")
+
+    parser.add_argument("input_pdf_path", type=Path, help="Input PDF file", nargs="?")
     parser.add_argument(
         "-o",
         "--output",

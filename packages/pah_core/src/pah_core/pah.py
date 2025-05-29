@@ -17,6 +17,7 @@ class PAH:
         input_pdf_path: Path,
         output_pdf_path: Path,
         llm_model: str = "gemini/gemini-pro",
+        llm_api_key: str | None = None,
         output_page_texts_path: Path | None = None,
         output_highlights_path: Path | None = None,
         log_level: int | str = INFO,
@@ -25,6 +26,7 @@ class PAH:
         self.document = pymupdf.Document(input_pdf_path)
         self.output_pdf_path = output_pdf_path
         self.llm_model = llm_model
+        self.llm_api_key = llm_api_key
         self.output_page_texts_path = output_page_texts_path
         self.output_highlights_path = output_highlights_path
 
@@ -53,6 +55,7 @@ class PAH:
             model=self.llm_model,
             prompt=prompt,
             page_texts=page_texts,
+            api_key=self.llm_api_key,
         )
 
         if self.output_highlights_path:
