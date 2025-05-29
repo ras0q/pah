@@ -13,8 +13,8 @@ pip install pah
 ### As a CLI tool
 
 ```bash
-$ uv run pah --help
-usage: pah [-h] --output OUTPUT --model MODEL [--output-highlights OUTPUT_HIGHLIGHTS] [--log-level {DEBUG,INFO,WARNING,ERROR,CRITICAL}] input_pdf_path
+$ pah --help
+usage: pah [-h] -o OUTPUT -m MODEL -p PROMPT [--output-highlights OUTPUT_HIGHLIGHTS] [--log-level {DEBUG,INFO,WARNING,ERROR,CRITICAL}] input_pdf_path
 
 pah: PDF AutoAuto Highlighter
 
@@ -23,12 +23,14 @@ positional arguments:
 
 options:
   -h, --help            show this help message and exit
-  --output, -o OUTPUT   Output PDF file with highlights
-  --model, -m MODEL     LLM model to use (See https://litellm.vercel.app/docs/providers)
+  -o, --output OUTPUT   Output PDF file with highlights (default: output\example_highlighted.pdf)
+  -m, --model MODEL     LLM model to use (See https://litellm.vercel.app/docs/providers)
+  -p, --prompt PROMPT   Prompt to use for highlighting (default: Extract the most important sections of the text for helping the user understand the content
+                        of the PDF document. )
   --output-highlights OUTPUT_HIGHLIGHTS
-                        Output JSON file for highlights
+                        Output JSON file for highlights (default: output\highlights.json)
   --log-level {DEBUG,INFO,WARNING,ERROR,CRITICAL}
-                        Logging level
+                        Logging level (default: INFO)
 ```
 
 ```bash
