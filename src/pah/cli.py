@@ -2,7 +2,7 @@ def cli():
     import argparse
     from pathlib import Path
 
-    from pah.pah import PAH, DEFAULT_PROMPT
+    from pah_core import PAH
 
     parser = argparse.ArgumentParser(description="pah: PDF AutoAuto Highlighter")
     parser.add_argument("input_pdf_path", type=Path, help="Input PDF file")
@@ -24,8 +24,7 @@ def cli():
         "-p",
         "--prompt",
         type=str,
-        default=DEFAULT_PROMPT,
-        help="Prompt to use for highlighting (default: %(default)s)",
+        help="Prompt to use for highlighting",
     )
     parser.add_argument(
         "--output-page-texts",

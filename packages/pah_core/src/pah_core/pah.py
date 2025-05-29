@@ -4,7 +4,7 @@ import json
 
 import pymupdf  # type: ignore
 
-from pah.services import llm, pdf
+from pah_core.services import llm, pdf
 
 DEFAULT_PROMPT = """
 Extract the most important sections of the text for helping the user understand the content of the PDF document.
@@ -23,9 +23,9 @@ class PAH:
     ):
         self.input_pdf_path = input_pdf_path
         self.document = pymupdf.Document(input_pdf_path)
-        self.output_page_texts_path = output_page_texts_path
         self.output_pdf_path = output_pdf_path
         self.llm_model = llm_model
+        self.output_page_texts_path = output_page_texts_path
         self.output_highlights_path = output_highlights_path
 
         handler = StreamHandler()

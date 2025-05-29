@@ -2,11 +2,7 @@
 authors = [
   {name = "ras0q"},
 ]
-dependencies = [
-  "litellm>=1.71.2",
-  "pydantic>=2.11.5",
-  "pymupdf>=1.26.0",
-]
+dependencies = ["pah-core"]
 description = "PDF Auto Highlighter"
 dynamic = ["version"]
 license = {file = "LICENSE"}
@@ -20,11 +16,14 @@ issues = "https://github.com/ras0q/pah/issues"
 repository = "https://github.com/ras0q/pah"
 
 [project.scripts]
-pah = "pah:cli"
+pah = "pah.cli:cli"
 
 [build-system]
 build-backend = "hatchling.build"
 requires = ["hatchling>=1.27.0", "uv-dynamic-versioning>=0.8.2"]
+
+# [tool.hatch.build.targets.wheel]
+# packages = ["src/pah"]
 
 [tool.hatch.version]
 source = "uv-dynamic-versioning"
@@ -38,4 +37,7 @@ style = "pep440"
 vcs = "git"
 
 [tool.uv.workspace]
-members = ["pah"]
+members = ["packages/*"]
+
+[tool.uv.sources]
+pah-core = {workspace = true}

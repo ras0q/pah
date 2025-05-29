@@ -1,7 +1,7 @@
 import json
 from pydantic import BaseModel, Field
 
-from pah.models import Highlight
+from pah_core.models import Highlight
 
 
 class HighlightResponse(BaseModel):

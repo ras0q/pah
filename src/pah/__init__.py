@@ -1,4 +1,3 @@
-from .pah import PAH
-from .cli import cli
+from pah_core import PAH
 
-__all__ = ["PAH", "cli"]
+__all__ = ["PAH"]
