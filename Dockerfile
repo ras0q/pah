@@ -4,7 +4,10 @@
 FROM python:3.13-slim-bookworm
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
-RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates git
+# For dynamic versioning
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends git \
+  && git init
 
 # Change the working directory to the `app` directory
 WORKDIR /app
