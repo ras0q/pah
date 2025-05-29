@@ -12,7 +12,6 @@ def cli():
         type=Path,
         default=Path("output/example_highlighted.pdf"),
         help="Output PDF file with highlights (default: %(default)s)",
-        required=True,
     )
     parser.add_argument(
         "-m",
@@ -27,14 +26,12 @@ def cli():
         type=str,
         default=DEFAULT_PROMPT,
         help="Prompt to use for highlighting (default: %(default)s)",
-        required=True,
     )
     parser.add_argument(
         "--output-highlights",
         type=Path,
         default=Path("output/highlights.json"),
         help="Output JSON file for highlights (default: %(default)s)",
-        required=False,
     )
     parser.add_argument(
         "--log-level",
@@ -42,7 +39,6 @@ def cli():
         default="INFO",
         choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"],
         help="Logging level (default: %(default)s)",
-        required=False,
     )
 
     args = parser.parse_args()
