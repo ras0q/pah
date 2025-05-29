@@ -14,9 +14,7 @@ pip install pah
 
 ```bash
 $ uv run pah --help
-usage: pah [-h] --output_pdf_path OUTPUT_PDF_PATH --llm_model LLM_MODEL [--output_highlights_path OUTPUT_HIGHLIGHTS_PATH]
-           [--log_level {DEBUG,INFO,WARNING,ERROR,CRITICAL}]
-           input_pdf_path
+usage: pah [-h] --output OUTPUT --model MODEL [--output-highlights OUTPUT_HIGHLIGHTS] [--log-level {DEBUG,INFO,WARNING,ERROR,CRITICAL}] input_pdf_path
 
 pah: PDF AutoAuto Highlighter
 
@@ -25,13 +23,11 @@ positional arguments:
 
 options:
   -h, --help            show this help message and exit
-  --output_pdf_path OUTPUT_PDF_PATH
-                        Output PDF file with highlights
-  --llm_model LLM_MODEL
-                        LLM model to use (See https://litellm.vercel.app/docs/providers)
-  --output_highlights_path OUTPUT_HIGHLIGHTS_PATH
+  --output, -o OUTPUT   Output PDF file with highlights
+  --model, -m MODEL     LLM model to use (See https://litellm.vercel.app/docs/providers)
+  --output-highlights OUTPUT_HIGHLIGHTS
                         Output JSON file for highlights
-  --log_level {DEBUG,INFO,WARNING,ERROR,CRITICAL}
+  --log-level {DEBUG,INFO,WARNING,ERROR,CRITICAL}
                         Logging level
 ```
 
