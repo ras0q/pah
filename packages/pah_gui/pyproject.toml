@@ -19,6 +19,5 @@ dependencies = ["pah-core=={{version}}", "streamlit>=1.45.1"]
 bump = true
 latest-tag = true
 pattern = '(?P<base>\d+\.\d+\.\d+)'
-strict = true
 style = "pep440"
 vcs = "git"

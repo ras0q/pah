@@ -36,7 +36,6 @@ optional-dependencies = {gui = ["pah-gui=={{version}}"]}
 bump = true
 latest-tag = true
 pattern = '(?P<base>\d+\.\d+\.\d+)'
-strict = true
 style = "pep440"
 vcs = "git"
 
