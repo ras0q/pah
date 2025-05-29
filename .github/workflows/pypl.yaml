@@ -20,4 +20,4 @@ jobs:
           enable-cache: true
       - run: uv sync
       - run: uv build
-      - run: uv publish -t "{{ secrets.PYPI_TOKEN }}"
+      - run: uv publish -t {{ secrets.PYPI_TOKEN }}
