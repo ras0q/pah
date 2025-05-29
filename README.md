@@ -1,6 +1,6 @@
 # pah
 
-[![PyPI - pah](https://img.shields.io/pypi/v/pah)](https://pypi.org/project/pah/)
+[![PyPI - pah](https://img.shields.io/pypi/v/pah)](https://pypi.org/project/pah/) [![PyPI - pah-core](https://img.shields.io/pypi/v/pah-core)](https://pypi.org/project/pah-core/) [![PyPI - pah-gui](https://img.shields.io/pypi/v/pah-gui)](https://pypi.org/project/pah-gui/)
 
 PDF Auto Highlighter
 
@@ -8,6 +8,21 @@ PDF Auto Highlighter
 
 ```bash
 pip install pah
+```
+
+```bash
+$ pah --help
+usage: pah [-h] {highlight,gui} ...
+
+pah: PDF Auto Highlighter
+
+options:
+  -h, --help       show this help message and exit
+
+subcommands:
+  {highlight,gui}
+    highlight      highlight a PDF using LLMs
+    gui            Run pah on the Web
 ```
 
 ### As a CLI tool
@@ -35,7 +50,10 @@ options:
 ```
 
 ```bash
-pah input.pdf --output_pdf_path output.pdf --llm_model gpt-4o
+pah -o output.pdf -m gpt-4o input.pdf
+
+# or
+# uvx pah -o output.pdf -m gpt-4o input.pdf
 ```
 
 ### As a Python library
@@ -54,6 +72,8 @@ pah.highlight()
 
 ### As a GUI tool
 
+![GUI](docs/assets/gui.png)
+
 ```bash
 pip install pah[gui]
 ```
@@ -68,4 +88,7 @@ options:
 
 ```bash
 pah gui
+
+# or
+# uvx pah[gui] gui
 ```

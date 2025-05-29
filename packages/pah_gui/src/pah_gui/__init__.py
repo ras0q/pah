@@ -5,6 +5,10 @@ import streamlit as st
 
 
 def run():
+    st.set_page_config(
+        page_title="PDF Auto Highlighter (pah)",
+        page_icon=":high_brightness:",
+    )
     st.title("PDF Auto Highlighter (pah)")
 
     input_pdf = st.file_uploader(

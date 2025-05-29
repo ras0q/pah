@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 def cli():
-    parser = argparse.ArgumentParser(description="pah: PDF AutoAuto Highlighter")
+    parser = argparse.ArgumentParser(description="pah: PDF Auto Highlighter")
 
     subparsers = parser.add_subparsers(title="subcommands", dest="command")
     cmd_highlight(subparsers.add_parser("highlight", help="highlight a PDF using LLMs"))
