@@ -28,10 +28,14 @@ def cli():
         help="Prompt to use for highlighting (default: %(default)s)",
     )
     parser.add_argument(
+        "--output-page-texts",
+        type=Path,
+        help="Output JSON file for page texts",
+    )
+    parser.add_argument(
         "--output-highlights",
         type=Path,
-        default=Path("output/highlights.json"),
-        help="Output JSON file for highlights (default: %(default)s)",
+        help="Output JSON file for highlights",
     )
     parser.add_argument(
         "--log-level",
@@ -47,6 +51,7 @@ def cli():
         input_pdf_path=args.input_pdf_path,
         output_pdf_path=args.output,
         llm_model=args.model,
+        output_page_texts_path=args.output_page_texts,
         output_highlights_path=args.output_highlights,
         log_level=args.log_level,
     )
