@@ -26,10 +26,10 @@ def get_highlights(
     prompt: str,
     page_texts: list[str],
 ) -> list[Highlight]:
-    import litellm
+    from litellm.main import completion
     from litellm.types.utils import Choices, ModelResponse
 
-    response = litellm.completion(
+    response = completion(
         model=model,
         messages=[
             {
