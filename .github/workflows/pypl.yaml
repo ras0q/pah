@@ -19,5 +19,9 @@ jobs:
       - uses: astral-sh/setup-uv@v5
         with:
           enable-cache: true
-      - run: uv build
-      - run: uv publish -t {{ secrets.PYPI_TOKEN }} -v
+      - name: Build and Publish to PyPI
+        run: |
+          uv build
+          uv publish
+        env:
+          UV_PUBLISH_TOKEN: ${{ secrets.PYPI_TOKEN }}
